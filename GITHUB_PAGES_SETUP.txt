@@ -1,0 +1,52 @@
+GITHUB PAGES — READY TO PUBLISH
+================================
+
+This folder is ready for GitHub Pages.
+
+GitHub username: SukiLiu
+Recommended repository name: photography
+Expected site URL: https://SukiLiu.github.io/photography/
+
+WHAT IS ALREADY DONE
+--------------------
+- index.html is at the project root
+- all links are relative and GitHub Pages compatible
+- .nojekyll is included
+- favicon is included
+- basic social/share metadata is included
+- no build step, R, Node, or Lovable is required
+
+PUBLISH
+-------
+1. Create a new PUBLIC GitHub repository named: photography
+2. Upload the CONTENTS of this folder to the repository root.
+   Important: index.html must be visible at the top level of the repository.
+3. In the repository:
+   Settings -> Pages
+4. Under "Build and deployment":
+   Source: Deploy from a branch
+   Branch: main
+   Folder: / (root)
+5. Save.
+
+GitHub will then provide a public URL similar to:
+https://SukiLiu.github.io/photography/
+
+CUSTOM DOMAIN
+-------------
+Later, if you buy a domain such as sukiliu.com or sukil.photo,
+you can add it in:
+Settings -> Pages -> Custom domain
+
+IMPORTANT FOR SOCIAL PREVIEWS
+-----------------------------
+The site is already shareable in Instagram bio, LinkedIn, resumes,
+email signatures, WeChat, and Xiaohongshu.
+
+For a perfect rich preview image when pasted into social apps, the final
+GitHub Pages URL or custom domain is needed. Once you know that URL,
+the Open Graph image can be finalized.
+
+UPDATING PHOTOS
+---------------
+Replace photo-01.jpg through photo-08.jpg in the images folder.

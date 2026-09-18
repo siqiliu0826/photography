@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Small Days — Suki L</title>
+<meta name="description" content="Suki L — photography portfolio, visual diary, and selected photo stories.">
+<meta name="theme-color" content="#f7f4ef">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Small Days — Suki L">
+<meta property="og:description" content="Suki L — photography portfolio, visual diary, and selected photo stories.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+<div class="site-shell">
+
+<header class="site-header">
+  <a class="brand" href="index.html">Suki L</a>
+  <nav class="nav">
+    <a href="index.html#stories" aria-current="page">Work</a>
+    <a href="journal.html" >Journal</a>
+    <a href="about.html" >About</a>
+  </nav>
+</header>
+
+<main>
+<section class="story-head">
+  <div>
+    <p class="section-kicker">Everyday — 2026</p>
+    <h1>Small Days</h1>
+  </div>
+  <p class="story-deck">A visual diary of ordinary moments, soft light, and things that felt worth keeping.</p>
+</section>
+<section class="photo-essay">
+  <figure><img class="essay-img" src="images/photo-02.jpg" alt=""><figcaption>01 · Everyday — 2026</figcaption></figure><figure><img class="essay-img" src="images/photo-06.jpg" alt=""><figcaption>02 · Everyday — 2026</figcaption></figure><div class="pullquote">Not every photograph needs an occasion.</div><figure><img class="essay-img" src="images/photo-08.jpg" alt=""><figcaption>03 · Everyday — 2026</figcaption></figure><figure><img class="essay-img" src="images/photo-04.jpg" alt=""><figcaption>04 · Everyday — 2026</figcaption></figure><figure><img class="essay-img" src="images/photo-03.jpg" alt=""><figcaption>05 · Everyday — 2026</figcaption></figure>
+</section>
+</main>
+
+<footer class="footer">
+  <span>© 2026 Suki L</span>
+  <span>Photography</span>
+</footer>
+
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lb-close">×</button>
+  <button class="lb-prev" id="lb-prev">←</button>
+  <img id="lb-image" alt="">
+  <button class="lb-next" id="lb-next">→</button>
+  <div class="lb-meta" id="lb-meta"></div>
+</div>
+<script>
+const imgs=[...document.querySelectorAll('.essay-img')];
+const lb=document.getElementById('lightbox'), li=document.getElementById('lb-image'), meta=document.getElementById('lb-meta');
+let idx=0;
+imgs.forEach((im,i)=>{im.style.cursor='zoom-in'; im.onclick=()=>openAt(i);});
+function openAt(i){idx=i;li.src=imgs[i].src;meta.textContent=`${String(i+1).padStart(2,'0')} / ${String(imgs.length).padStart(2,'0')} · Everyday — 2026`;lb.classList.add('open');document.body.classList.add('no-scroll');}
+function closeLb(){lb.classList.remove('open');document.body.classList.remove('no-scroll');}
+document.getElementById('lb-close').onclick=closeLb;
+document.getElementById('lb-prev').onclick=()=>openAt((idx-1+imgs.length)%imgs.length);
+document.getElementById('lb-next').onclick=()=>openAt((idx+1)%imgs.length);
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')document.getElementById('lb-prev').click();if(e.key==='ArrowRight')document.getElementById('lb-next').click();});
+</script>
+</body></html>

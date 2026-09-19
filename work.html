@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Work — Suki L</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="site-shell">
+
+<header class="site-header">
+  <a class="brand" href="index.html">Suki L</a>
+  <nav class="nav">
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="journal.html" >Journal</a>
+    <a href="about.html" >About</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-intro">
+    <p class="page-kicker">Work</p>
+    <h1 class="page-title">Selected photographs</h1>
+    <p>A quiet selection of landscapes, travel, and everyday observations.</p>
+  </section>
+
+  <section class="work-grid">
+    
+      <figure class="work-card">
+        <button class="open-photo" data-src="images/photo-01.jpg" style="border:0;background:none;padding:0;width:100%;cursor:zoom-in">
+          <img src="images/photo-01.jpg" alt="Selected work 1">
+        </button>
+        <figcaption>
+          <span>01</span>
+          <span>Untitled Study</span>
+          <span>2026</span>
+        </figcaption>
+      </figure>
+    
+      <figure class="work-card">
+        <button class="open-photo" data-src="images/photo-02.jpg" style="border:0;background:none;padding:0;width:100%;cursor:zoom-in">
+          <img src="images/photo-02.jpg" alt="Selected work 2">
+        </button>
+        <figcaption>
+          <span>02</span>
+          <span>Untitled Study</span>
+          <span>2026</span>
+        </figcaption>
+      </figure>
+    
+      <figure class="work-card">
+        <button class="open-photo" data-src="images/photo-03.jpg" style="border:0;background:none;padding:0;width:100%;cursor:zoom-in">
+          <img src="images/photo-03.jpg" alt="Selected work 3">
+        </button>
+        <figcaption>
+          <span>03</span>
+          <span>Untitled Study</span>
+          <span>2026</span>
+        </figcaption>
+      </figure>
+    
+      <figure class="work-card">
+        <button class="open-photo" data-src="images/photo-04.jpg" style="border:0;background:none;padding:0;width:100%;cursor:zoom-in">
+          <img src="images/photo-04.jpg" alt="Selected work 4">
+        </button>
+        <figcaption>
+          <span>04</span>
+          <span>Untitled Study</span>
+          <span>2026</span>
+        </figcaption>
+      </figure>
+    
+      <figure class="work-card">
+        <button class="open-photo" data-src="images/photo-05.jpg" style="border:0;background:none;padding:0;width:100%;cursor:zoom-in">
+          <img src="images/photo-05.jpg" alt="Selected work 5">
+        </button>
+        <figcaption>
+          <span>05</span>
+          <span>Untitled Study</span>
+          <span>2026</span>
+        </figcaption>
+      </figure>
+    
+      <figure class="work-card">
+        <button class="open-photo" data-src="images/photo-06.jpg" style="border:0;background:none;padding:0;width:100%;cursor:zoom-in">
+          <img src="images/photo-06.jpg" alt="Selected work 6">
+        </button>
+        <figcaption>
+          <span>06</span>
+          <span>Untitled Study</span>
+          <span>2026</span>
+        </figcaption>
+      </figure>
+    
+      <figure class="work-card">
+        <button class="open-photo" data-src="images/photo-07.jpg" style="border:0;background:none;padding:0;width:100%;cursor:zoom-in">
+          <img src="images/photo-07.jpg" alt="Selected work 7">
+        </button>
+        <figcaption>
+          <span>07</span>
+          <span>Untitled Study</span>
+          <span>2026</span>
+        </figcaption>
+      </figure>
+    
+      <figure class="work-card">
+        <button class="open-photo" data-src="images/photo-08.jpg" style="border:0;background:none;padding:0;width:100%;cursor:zoom-in">
+          <img src="images/photo-08.jpg" alt="Selected work 8">
+        </button>
+        <figcaption>
+          <span>08</span>
+          <span>Untitled Study</span>
+          <span>2026</span>
+        </figcaption>
+      </figure>
+    
+  </section>
+</main>
+
+<footer class="footer">
+  <span>© 2026 Suki L</span>
+  <span>Photography</span>
+</footer>
+
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lb-close">×</button>
+  <button class="lb-prev" id="lb-prev">←</button>
+  <img id="lb-image" alt="">
+  <button class="lb-next" id="lb-next">→</button>
+</div>
+
+<script>
+const buttons=[...document.querySelectorAll('.open-photo')];
+const lb=document.getElementById('lightbox');
+const img=document.getElementById('lb-image');
+let current=0;
+function openAt(i){
+  current=i;
+  img.src=buttons[i].dataset.src;
+  lb.classList.add('open');
+  document.body.classList.add('no-scroll');
+}
+function closeLb(){
+  lb.classList.remove('open');
+  document.body.classList.remove('no-scroll');
+}
+buttons.forEach((b,i)=>b.addEventListener('click',()=>openAt(i)));
+document.getElementById('lb-close').onclick=closeLb;
+document.getElementById('lb-prev').onclick=()=>openAt((current-1+buttons.length)%buttons.length);
+document.getElementById('lb-next').onclick=()=>openAt((current+1)%buttons.length);
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open')) return;
+  if(e.key==='Escape') closeLb();
+  if(e.key==='ArrowLeft') document.getElementById('lb-prev').click();
+  if(e.key==='ArrowRight') document.getElementById('lb-next').click();
+});
+</script>
+</body>
+</html>
